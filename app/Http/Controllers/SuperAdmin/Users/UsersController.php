@@ -167,4 +167,11 @@ class UsersController extends Controller
             $data['credit_hr'] = ($setting->credit/$setting->credit_hour_break);
         }
     }
+
+    public function logOut()
+    {
+        Auth::logout();
+        $this->status_message = 'Successfully Logged Out.';
+        return redirect()->route('login.page')->with(['status_message' => $this->status_message, 'alert_type' => $this->alert_type]);
+    }
 }
