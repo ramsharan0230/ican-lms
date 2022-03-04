@@ -9,7 +9,7 @@
 
           <div class="d-flex justify-content-center py-4">
             <a href="index.html" class="logo d-flex align-items-center w-auto">
-                <img src="{{ asset('assets/images/login_banner.jpg') }}" alt="logo" height="500px" width="100%">
+                <img src="{{ asset('assets-admin/images/ican-logo.jpg') }}" alt="logo" height="500px" width="100%">
             </a>
           </div><!-- End Logo -->
 
@@ -73,7 +73,7 @@
             <!-- You can delete the links only if you purchased the pro version. -->
             <!-- Licensing information: https://bootstrapmade.com/license/ -->
             <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+            <strong><span> The Institiute of Chartered Accountants of Nepal</span></strong>
           </div>
 
         </div>
