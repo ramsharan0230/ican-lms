@@ -39,18 +39,18 @@
         </a>
         <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="icons-bootstrap.html">
-              <i class="bi bi-circle"></i><span>Bootstrap Icons</span>
+            <a href="{{ route('categories.index') }}">
+              <i class="bi bi-circle"></i><span>Categories</span>
             </a>
           </li>
           <li>
-            <a href="icons-remix.html">
-              <i class="bi bi-circle"></i><span>Remix Icons</span>
+            <a href="{{ route('lessons.index') }}">
+              <i class="bi bi-circle"></i><span>Lesson</span>
             </a>
           </li>
           <li>
-            <a href="icons-boxicons.html">
-              <i class="bi bi-circle"></i><span>Boxicons</span>
+            <a href="{{ route('courses.index')}}">
+              <i class="bi bi-circle"></i><span>Courses</span>
             </a>
           </li>
         </ul>

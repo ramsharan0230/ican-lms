@@ -4,10 +4,11 @@
 		<title>Login</title>
 		<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.css') }}">
 		<link href="https://fonts.googleapis.com/css?family=Roboto:400,700,900" rel="stylesheet">
+		<link href="{{ asset('assets/images/ican-logo.jpg')}}" rel="icon">
 		<style type="text/css">
 			body{
 				font-family: 'Roboto', sans-serif;
-				background: url({{ asset('assets/images/login_background.jpg') }}) repeat;
+				background: url({{ asset('assets/images/ican-logo.jpg') }}) repeat;
 			}
 			.logo_login{
 				width:100%;
@@ -46,6 +47,7 @@
 				margin-bottom: 22px;
 			}
 		</style>
+		
 	</head>
 	<body>
 		<img src="{{ asset('assets/images/login_banner.jpg')}}" class="img-responsive logo_login">

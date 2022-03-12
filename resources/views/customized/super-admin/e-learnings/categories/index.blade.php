@@ -1,0 +1,100 @@
+@extends('layouts.super-admin.master')
+@section('title', 'Categories')
+@push('styles')
+<link href="{{ asset('assets/vendor/simple-datatables/style.css')}}" rel="stylesheet">
+@endpush
+@section('content')
+
+<div class="pagetitle">
+    <h1>Categories</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ route('super-admin-dashboard') }}">Home</a></li>
+        <li class="breadcrumb-item active">Categories</li>
+      </ol>
+    </nav>
+  </div><!-- End Page Title -->
+  {{-- new datatable-column-search-inputs --}}
+  <section class="section">
+    <div class="row">
+      <div class="col-lg-12">
+
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Categories</h5>
+            <div class="panel-body">
+                <a href="{{ route('categories.create') }}" class="btn btn-info btn-lg"><i class="icon-add"></i> &nbsp;&nbsp;Add New Category</a>
+            </div>
+            <!-- Table with stripped rows -->
+            <table class="table datatable">
+              <thead>
+                <tr>
+                    <th>SN.</th>
+                    <th>Name</th>
+                    <th>Display Name</th>
+                    <th>Description</th>
+                    <th>Created At</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                @foreach($categories as $key=>$category)
+                <tr>
+                    <td>{{ $key+1 }}</td>
+                    <td>{{ $category->name }}</td>
+                    <td>{{ $category->display_name }}</td>
+                    <td>{!!  \Illuminate\Support\Str::limit($category->description,75, $end='...') !!}</td>
+                    <td>{{ $category->created_at->format('d m, Y')}}</td>
+                    <td class="text-center">
+                        <div class="filter">
+                            <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                              <li>
+                                <a href="{{ route('categories.edit', [$category->id]) }}"><i class="bx bxs-pencil"></i> <span class="text-info">Edit</span></a>
+                              </li>
+                              <li>
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#basicModal_{{$category->id}}"><i class="bx bxs-trash"></i> <span class="text-danger">Delete</span></a>
+                              </li>
+                            </ul>
+                        </div>
+                    </td>
+
+                    <!-- Delete Modal Custom background color starts-->
+                    <div class="modal fade" id="basicModal_{{$category->id}}" tabindex="-1">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title">{{ $category->name }}</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              Are you sure want to delete category?
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-warning pull-right m-l-10" data-dismiss="modal">Cancel</button>
+                                  {{ Form::open(array('route' => array('categories.destroy', $category->id), 'method' => 'delete')) }}
+                                      <button type="submit" class="btn bg-success">Yes</button>
+                                  {{ Form::close() }}
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                    <!-- End Basic Modal-->
+                </tr>
+                @endforeach
+              </tbody>
+            </table>
+            <!-- End Table with stripped rows -->
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+@endsection
+
+@section('scripts')
+<script src="{{ asset('assets/vendor/simple-datatables/simple-datatables.js')}}"></script>
+
+@endsection
