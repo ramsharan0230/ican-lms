@@ -54,6 +54,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('e-learning/courses', 'SuperAdmin\Elearnings\Courses\CoursesController');
     //Courses Routes Ends
 
+     //Courses Routes Starts
+     Route::resource('e-learning/questions', 'SuperAdmin\Elearnings\Questions\QuestionsController');
+     //Courses Routes Ends
+
     //Tests Routes Starts
     Route::get('e-learning/tests/filter', 'SuperAdmin\Elearnings\Tests\TestsController@filter')->name('e-learning.tests.filter');
     Route::resource('e-learning/tests', 'SuperAdmin\Elearnings\Tests\TestsController');

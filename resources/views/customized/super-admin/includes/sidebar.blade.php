@@ -53,6 +53,12 @@
               <i class="bi bi-circle"></i><span>Courses</span>
             </a>
           </li>
+
+          <li>
+            <a href="{{ route('e-learning.questions.index')}}">
+              <i class="bi bi-circle"></i><span>Questions</span>
+            </a>
+          </li>
         </ul>
       </li><!-- End Icons Nav -->
 
