@@ -27,38 +27,38 @@
                 <h3 class="card-title">Tests Datewise Report</h3>
               </div>
               <div class="col-sm-3">
-                <a href="{{ route('EXPORT-TEST-REPORT') }}" class="btn btn-primary">Export</a>
+                {{-- <a href="{{ route('EXPORT-TEST-REPORT') }}" class="btn btn-primary">Export</a> --}}
               </div>
             </div>
 
           </div>
           <div class="card-body">
 
+            {!! Form::open(['route' => 'e-learning.test-report.datewise.search', 'method' => 'GET']) !!}
             <div class="row">
-                {!! Form::open(['route' => 'e-learning.test-report.datewise.search', 'method' => 'GET']) !!}
-                <div class="col-sm-4">
-                    <div class="form-group{{ $errors->has('from') ? ' has-error' : '' }}">
-                        {{ Form::label('from', 'From: ') }}
-                        {!! Form::date('from', Request::get('from') ?: Request::old('from'), ['class' => 'form-control', 'required' => 'required']) !!}
-                        @if($errors->has('from'))
-                            <span class="help-block">{{ $errors->first('from') }}</span>
-                        @endif
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="form-group{{ $errors->has('to') ? ' has-error' : '' }}">
-                        {{ Form::label('to', 'To: ') }}
-                        {!! Form::date('to', Request::get('to') ?: Request::old('to'), ['class' => 'form-control', 'required' => 'required']) !!}
-                        @if($errors->has('to'))
-                            <span class="help-block">{{ $errors->first('to') }}</span>
-                        @endif
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <button type="submit" class="btn btn-info m-t-25">Search</button>
-                </div>
-                {!! Form::close() !!}
+              <div class="col-sm-4">
+                  <div class="form-group{{ $errors->has('from') ? ' has-error' : '' }}">
+                    {{ Form::label('from', 'From: ') }}
+                    {!! Form::date('from', Request::get('from') ?: Request::old('from'), ['class' => 'form-control', 'required' => 'required']) !!}
+                    @if($errors->has('from'))
+                        <span class="help-block">{{ $errors->first('from') }}</span>
+                    @endif
+                  </div>
+              </div>
+              <div class="col-sm-4">
+                  <div class="form-group{{ $errors->has('to') ? ' has-error' : '' }}">
+                  {{ Form::label('to', 'To: ') }}
+                  {!! Form::date('to', Request::get('to') ?: Request::old('to'), ['class' => 'form-control', 'required' => 'required']) !!}
+                  @if($errors->has('to'))
+                      <span class="help-block">{{ $errors->first('to') }}</span>
+                  @endif
+                  </div>
+              </div>
+              <div class="col-sm-4">
+                <button type="submit" class="btn btn-info mt-4">Search</button>
+              </div>
             </div>
+            {!! Form::close() !!}
             <hr>
             <table class="table datatable-column-search-inputs">
                 <thead>

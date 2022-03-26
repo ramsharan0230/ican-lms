@@ -47,9 +47,9 @@ class TestReportsController extends Controller
         $from = $request->input('from');
         $to = $request->input('to');
 
-        $data['test_results'] = TestResult::whereBetween('created_at', array($from, $to))->get();
+        $data['test_results'] = TestResult::whereBetween('created_at', array($from, $to))->paginate(15);
 
-    	return view('super-admin.e-learnings.test-reports.datewise', $data);
+    	return view('customized.super-admin.e-learnings.test-reports.datewise', $data);
     }
 
     public function getReportCoursewise() {

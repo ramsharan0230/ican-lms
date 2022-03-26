@@ -62,7 +62,6 @@ class TestResultController extends Controller
 
     
     public function getTestResults() {
-    
         $data['results'] = TestResult::get();
         $data['status'] = 'all';
     	return view('super-admin.result', $data);
