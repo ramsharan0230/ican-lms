@@ -108,8 +108,8 @@ class UsersController extends Controller
         //         ->whereIn('course_lesson.course_id', $assigned_courses_id)->groupBy('course_lesson.course_id')->get();
                 
 
-        $data['available_courses'] = Course::where('published_status', 1)->where('price', 0)->orderBy('created_at', 'desc')->paginate(8);
-        $data['pay_available_courses'] = Course::where('published_status', 1)->where('price', '!=',0)->orderBy('created_at', 'desc')->paginate(8);
+        $data['available_courses'] = Course::where('published_status', 1)->where('price', 0)->orderBy('created_at', 'desc')->paginate(5);
+        $data['pay_available_courses'] = Course::where('published_status', 1)->where('price', '!=',0)->orderBy('created_at', 'desc')->paginate(5);
 
 
         if(Auth::user()->role_id == 2) {

@@ -26,7 +26,7 @@ Route::get('/terms-and-conditions', ['as' => 'auth.terms', 'uses' => 'SuperAdmin
 Route::post('/terms/accept', ['as' => 'auth.terms.accept', 'uses' => 'SuperAdmin\Users\UsersController@getTermAccept']);
 Route::get('/signup', ['as' => 'auth.signup', 'uses' => 'SuperAdmin\Users\UsersController@getSignup', 'middleware' => ['guest']]);
 Route::post('/signup', ['as' => 'auth.signup', 'uses' => 'SuperAdmin\Users\UsersController@postSignup', 'middleware' => ['guest']]);
-Route::get('/logout', ['as' => 'login.logout', 'uses'=> 'SuperAdmin\Users\UsersController@logOut']);
+Route::get('/logout', ['as' => 'logout', 'uses'=> 'SuperAdmin\Users\UsersController@logOut']);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/terms-and-conditions', ['as' => 'auth.terms', 'uses' => 'SuperAdmin\Users\UsersController@getTerms', 'middleware' => ['guest']]);

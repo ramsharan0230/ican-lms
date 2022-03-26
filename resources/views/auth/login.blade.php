@@ -14,11 +14,6 @@
 
             <div class="card-body">
 
-            <div class="pt-4 pb-2">
-                <h5 class="card-title text-center pb-0 fs-4">The Institiute of Chartered Accountants of Nepal</h5>
-                <p class="text-center small">Enter your username & password to login</p>
-            </div>
-
             <form method="POST" action="{{ route('login.verify') }}" class="row g-3 needs-validation" novalidate>
                 @csrf
                 <div class="col-12">
@@ -58,7 +53,7 @@
             <!-- You can delete the links only if you purchased the pro version. -->
             <!-- Licensing information: https://bootstrapmade.com/license/ -->
             <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-            <strong><span> The Institiute of Chartered Accountants of Nepal</span></strong>
+            <strong><span> &copy; The Institiute of Chartered Accountants of Nepal</span></strong>
         </div>
 
         </div>
