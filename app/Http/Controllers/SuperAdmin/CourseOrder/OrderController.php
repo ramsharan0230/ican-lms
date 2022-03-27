@@ -60,7 +60,7 @@ class OrderController extends Controller
         $data['query'] = $hasRequest ? null : $query;
         $data['paymentMethods'] = $paymentMethods;
 
-        return view('super-admin.courseorders.index', $data);
+        return view('customized.super-admin.courseorders.index', $data);
     }
 
 

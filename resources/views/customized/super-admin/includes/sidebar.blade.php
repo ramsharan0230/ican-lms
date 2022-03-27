@@ -76,7 +76,7 @@
         <ul id="icons-nav-report" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
             <a class="nav-link collapsed" data-bs-target="#icons-nav-test-reports" data-bs-toggle="collapse" href="#">
-              <i class="bi bi-gem"></i><span>Test Reports</span><i class="bi bi-chevron-down ms-auto"></i>
+              <i class="bi bi-pencil-square"></i><span>Test Reports</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="icons-nav-test-reports" class="nav-content collapse " data-bs-parent="#icons-nav-report">
 
@@ -94,6 +94,26 @@
             </ul>
           </li>
 
+          @if(\Illuminate\Support\Facades\Auth::user()->role_id == 2)
+          <li class="nav-item">
+            <a class="nav-link collapsed" href="{{ route('course-orders.index') }}">
+              <i class="bi bi-currency-dollar"></i> <span>Course Order Payments</span>
+            </a>
+          </li><!-- End Contact Page Nav -->
+
+          <li class="nav-item">
+            <a class="nav-link collapsed" href="{{ route('course-orders.failed-orders') }}">
+              <i class="bi bi-currency-dollar"></i> <span>Failed Course Order Payments</span>
+            </a>
+          </li><!-- End Contact Page Nav -->
+
+          <li class="nav-item">
+            <a class="nav-link collapsed" href="{{ route('course-orders-cpe') }}">
+              <i class="bi bi-currency-dollar"></i> <span>CPE Course Order Payments</span>
+            </a>
+          </li><!-- End Contact Page Nav -->
+
+          @endif
         </ul>
       </li><!-- End Icons Nav -->
     </ul>
