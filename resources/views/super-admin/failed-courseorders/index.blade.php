@@ -54,7 +54,7 @@
                          <li><a href="{{ route('course-orders.index') }}">Course Orders</a></li>
                          <li class="active">List Orders</li>
                      </ul>
-                </span>
+                    </span>
                 </h6>
             </div>
             <div class="heading-elements">

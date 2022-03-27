@@ -35,7 +35,6 @@ class OrderController extends Controller
         $paymentMethods = CourseOrder::select('payment_method')->distinct()->get()->pluck('payment_method');
         $orders = CourseOrder::with('user')
             ->where('payment', 'paid');
-            
         if($paymentInfo){
             $orders = $orders->where('payment_method', $paymentInfo);
         }
@@ -59,7 +58,6 @@ class OrderController extends Controller
 
         $data['query'] = $hasRequest ? null : $query;
         $data['paymentMethods'] = $paymentMethods;
-
         return view('customized.super-admin.courseorders.index', $data);
     }
 
@@ -73,10 +71,10 @@ class OrderController extends Controller
     public function cpeOrder(Request $request)
     {
         if (isset($request->user_id) && !empty($request->user_id)) {
-            $data['orders'] = CourseOrder::with('user')->where('user_id', $request->user_id)->with('course')->where('payment', 'paid')->where('payment_type', 'cpe')->get();
+            $data['orders'] = CourseOrder::with('user')->where('user_id', $request->user_id)->with('course')->where('payment', 'paid')->where('payment_type', 'cpe')->paginate(15);
         }
         $data['orders'] = [];
-        return view('super-admin.courseorders.cpe_index', $data);
+        return view('customized.super-admin.courseorders.cpe_index', $data);
     }
 
     public function fixOrderReferenceIssue(){
@@ -101,7 +99,7 @@ class OrderController extends Controller
     public function show($id)
     {
         $data['order'] = CourseOrder::with('user')->with('course')->where('id', $id)->first();
-        return view('super-admin.courseorders.show', $data);
+        return view('customized.super-admin.courseorders.show', $data);
     }
 
     public function export_course_payment_report(Request $request)
