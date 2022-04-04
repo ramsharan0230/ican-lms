@@ -44,7 +44,7 @@
 
             <div class="panel-body">
                 <a href="{{ route('EXPORT-TEST-REPORT_FAILED') }}" class="btn btn-custom btn-lg"><i class="icon-file-excel"></i> &nbsp;&nbsp;Export Excel Sheet</a>
-                                <a href="{{ route('EXPORT-TEST-REPORT_FAILED_FISCAL') }}" class="btn btn-custom btn-lg"><i class="icon-file-excel"></i> &nbsp;&nbsp;Export Excel Sheet Fiscal Year Wise</a>
+                <a href="{{ route('EXPORT-TEST-REPORT_FAILED_FISCAL') }}" class="btn btn-custom btn-lg"><i class="icon-file-excel"></i> &nbsp;&nbsp;Export Excel Sheet Fiscal Year Wise</a>
 
             </div>
             <table class="table datatable-column-search-inputs">

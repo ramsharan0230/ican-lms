@@ -55,33 +55,30 @@ class TestResultController extends Controller
         $pdf = PDF::loadView('pdf.certificate', ['user'=> $user,'course'=> $course,'lesson'=>$lesson, 'result' => $result]);
         return $pdf->download('certificate.pdf');
     }
-    
-    
-    
     /*=============================== Test Result ===========================================================*/
 
-    
     public function getTestResults() {
-        $data['results'] = TestResult::get();
+        $data['results'] = TestResult::paginate(15);
         $data['status'] = 'all';
-    	return view('super-admin.result', $data);
+    	return view('customized.super-admin.result', $data);
 
     }
     
     public function getTestResultsFailed() {
     
-        $data['results'] = TestResult::get();
-    	return view('super-admin.result_failed', $data);
+        $data['results'] = TestResult::paginate(15);
+    	return view('customized.super-admin.result-failed', $data);
 
     }
     
-    public function getTestResultsPass() {
-    
-        $data['results'] = TestResult::get();
+    public function getTestResultsPass()
+    {
+        $data['results'] = TestResult::paginate(15);
         $data['assigned_courses'] = AssignCourse::join('courses', 'assign_courses.course_id', '=', 'courses.id')
                                 ->select('assign_courses.start_date as start_date', 'assign_courses.end_date as end_date','courses.*', 'courses.id as course_id')
-                                ->where('assign_courses.user_id', '=', $this->user_id )->orderBy('created_at', 'desc')->get();
-    	return view('super-admin.result_pass', $data);
+                                ->where('assign_courses.user_id', '=', $this->user_id )->orderBy('created_at', 'desc')->paginate(15);
+
+    	return view('customized.super-admin.result-pass', $data);
 
     }
 }

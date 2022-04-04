@@ -24,7 +24,6 @@
           <span>Roles and Permissions</span>
         </a>
       </li><!-- End roles & permissions -->
-      
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{ route('terms.index')}}">
@@ -114,6 +113,16 @@
           </li><!-- End Contact Page Nav -->
 
           @endif
+
+          <li {!!(Route::currentRouteName()=="tests-taken")?'class="active"':''!!}>
+            <a href="{{ route('tests-taken') }}"><i class="bi bi-list-task"></i> <span>Tests Taken</span></a>
+          </li>
+          <li {!!(Route::currentRouteName()=="tests-pass")?'class="active"':''!!}>
+              <a href="{{ route('tests-pass') }}"><i class="bi bi-bookmark-check"></i> <span>Tests Passed</span></a>
+          </li>
+          <li {!!(Route::currentRouteName()=="tests-failed")?'class="active"':''!!}>
+              <a href="{{ route('tests-failed') }}"><i class="bi bi-bookmark-x"></i> <span>Tests Failed</span></a>
+          </li>
         </ul>
       </li><!-- End Icons Nav -->
     </ul>
